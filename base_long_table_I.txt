@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{longtable}
+\title{Contenido de .bib}
+\begin{document}
+%\begin{center}
+\begin{longtable}{|p{0.33\textwidth}|p{0.33\textwidth}|p{0.33\textwidth}|}
+\caption{Contenido de .bib} \label{tab:long} \\
+\hline \multicolumn{1}{|c|}{\textbf{Referencia}} & \multicolumn{1}{c|}{\textbf{Titulo}} & \multicolumn{1}{c|}{\textbf{Autores}} \\ \hline
+\endfirsthead
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline \multicolumn{1}{|c|}{\textbf{First column}} & \multicolumn{1}{c|}{\textbf{Second column}} & \multicolumn{1}{c|}{\textbf{Third column}} \\ \hline 
+\endhead
+\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+\hline \hline
+\endlastfoot
