@@ -2,17 +2,11 @@ import re
 import subprocess
 import os
 
-file = open("references.bib","r")
+file = open("eje2.bib","r")
 dataC = file.readlines()
 file.close()
-
-
-file = open("base_long_table_I.txt","r")
 base_LTI = ['\\documentclass{article}\n', '\\usepackage{longtable}\n', '\\title{Contenido de .bib}\n', '\\begin{document}\n', '%\\begin{center}\n', '\\begin{longtable}{|p{0.33\\textwidth}|p{0.33\\textwidth}|p{0.33\\textwidth}|}\n', '\\caption{Contenido de .bib} \\label{tab:long} \\\\\n', '\\hline \\multicolumn{1}{|c|}{\\textbf{Referencia}} & \\multicolumn{1}{c|}{\\textbf{Titulo}} & \\multicolumn{1}{c|}{\\textbf{Autores}} \\\\ \\hline\n', '\\endfirsthead\n', '\\multicolumn{3}{c}%\n', '{{\\bfseries \\tablename\\ \\thetable{} -- continued from previous page}} \\\\\n', '\\hline \\multicolumn{1}{|c|}{\\textbf{First column}} & \\multicolumn{1}{c|}{\\textbf{Second column}} & \\multicolumn{1}{c|}{\\textbf{Third column}} \\\\ \\hline \n', '\\endhead\n', '\\hline \\multicolumn{3}{|r|}{{Continued on next page}} \\\\ \\hline\n', '\\endfoot\n', '\\hline \\hline\n', '\\endlastfoot\n']
-#file.readlines()
-file = open("base_long_table_F.txt","r")
 base_LTF = ['\\end{longtable}\n', '\\end{document}\n']
-#file.readlines()
 
 def get_index(list_c):
     start1 = 0
@@ -31,7 +25,6 @@ def get_index(list_c):
                 start2 = 0
     return L_index
         
-
 def set_grupe_ref(Index,list_c):
     or_data = []
     for i in range(1,len(Index)):
@@ -128,7 +121,7 @@ def generate_tex(base_tex):
     subprocess.run(["pdflatex","main.tex"])
     subprocess.run(["pdflatex","main.tex"])
     print("PDF generade")
-    subprocess.run(["okular","main.pdf"])
+    subprocess.run(["evince","main.pdf"])
 
 
 Index = get_index(dataC)
